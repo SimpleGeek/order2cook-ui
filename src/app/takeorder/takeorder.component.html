@@ -1,0 +1,67 @@
+<!-- FA Icon Include -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<main>
+    <!-- Entry form here -->
+    <section>
+        <!-- Item selection -->
+        <div class="sub-container">
+            <h2>Item Search</h2>
+        </div>
+        <div class="sub-container">
+            <input [(ngModel)]="searchedMenuItemStr" (keyup.enter)="onSearch()" autofocus>
+            <i class="fa fa-search" (click)="onSearch()"></i>
+        </div>
+        <div class="sub-container">
+            <div *ngIf="notifySearchFoundItem" class="list-item notification">
+                <h3>Item found: {{searchedMenuItem.name}} - Qty on hand: {{searchedMenuItem.onHandQty}}</h3>
+            </div>
+            <div *ngIf="notifySearchDidNotFindItem" class="list-item notification warning">
+                <h3>Item not found!</h3>
+            </div>
+        </div>
+
+        <!-- Quantity selection -->
+        <div class="sub-container">
+            <h2>Quantity Selection</h2>
+        </div>
+        <div class="sub-container">
+            <i class="fa fa-minus-square-o fa-btn" (click)="decrementNumToOrder()"></i>
+            <input [(ngModel)]="numToOrder">
+            <i class="fa fa-plus-square-o fa-btn" (click)="incrementNumToOrder()"></i>
+        </div>
+
+        <!-- Confirmation/Clear controls -->
+        <div class="sub-container">
+            <h2>Confirmation</h2>
+        </div>
+        <div class="sub-container">
+            <button class="danger-btn" (click)="clear()">Clear</button>
+            <button (click)="addItemToOrder()">Add</button>
+        </div>
+    </section>
+    <!-- Display in-process order here -->
+    <section>
+        <div class="sub-container">
+            <h2>Order Items</h2>
+        </div>
+        <div class="sub-container list-container">
+            <div *ngFor="let item of itemsOnOrder" class="list-item">
+                <h3>
+                    {{item.menuItem.name}} X 
+                    <input type="number" class="embedded"
+                    (oninput)="changeFromConfirmationList(item)"
+                    value="{{item.qtyOrdered}}">
+                </h3>
+            </div>
+        </div>
+        <!-- Confirmation/Clear controls -->
+        <div *ngIf="orderReadyToComplete" class="sub-container">
+            <h2>Confirmation</h2>
+        </div>
+        <div *ngIf="orderReadyToComplete" class="sub-container">
+            <button class="danger-btn" (click)="clearAll()">Remove All</button>
+            <button (click)="completeOrder()">Complete</button>
+        </div>
+    </section>
+</main>

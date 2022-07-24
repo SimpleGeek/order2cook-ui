@@ -1,0 +1,65 @@
+/* BEGIN variable declarations */
+
+/* END variable declarations */
+
+main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+main {
+    margin-top: 10px;
+}
+
+.sub-container {
+    display: flex;
+    width: 400px;
+    margin-top: 30px;
+}
+
+.sub-container > * {
+    margin: 5px;
+}
+
+.list-container {
+    flex-direction: column;
+}
+
+.fa-search {
+    font-size:35px;
+    background-color: var(--primary-color);
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 5px;
+    color: var(--emphasis-text-color);
+
+    &:hover {
+        background-color: var(--primary-hover-color);
+    }
+}
+
+.fa-btn {
+    font-size:35px;
+    background-color: var(--primary-color);
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 7px;
+    border-radius: 5px;
+    color: var(--emphasis-text-color);
+
+    &:hover {
+        background-color: var(--primary-hover-color);
+    }
+}

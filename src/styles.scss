@@ -1,0 +1,114 @@
+/* Global styles */
+
+/*
+ Color scheme candidate 1:
+ #D9E5D6
+ #00A7E1
+ #EDDEA4
+ #FF9B42
+*/
+
+:root {
+	--primary-color: rgb(226, 222, 222);
+    --primary-hover-color: rgb(214, 207, 207);
+	--secondary-color: #EDDEA4;
+	--danger-color: #FF9B42;
+    --hover-danger-color: #df8638;
+    --accent-color: #00A7E1;
+    --hover-accent-color: #0392c2;
+    --emphasis-text-color: white;
+    --background-color: white;
+}
+
+/* Get rid of that nasty default margin and padding! */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+app-root {
+    width: 100%;
+    max-width: 100%;
+}
+
+input {
+    outline: 0;
+	border-width: 0 0 2px;
+	border-color: var(--accent-color);
+	font-size: 18px;
+	background-color: var(--primary-color);
+	height: 45px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+}
+
+input.embedded {
+    background-color: var(--background-color);
+    font-size: 14px;
+    border-width: 0;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+}
+
+/* Get rid of number type input buttons on 
+   Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Get rid of number type input buttons on Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+button {
+    padding: 5px;
+    border-radius: 5px;
+    border-width: 0px;
+    color: var(--emphasis-text-color);
+    font-size: 18px;
+    background-color: var(--accent-color);
+
+    &:hover {
+        background-color: var(--hover-accent-color);
+    }
+}
+
+.danger-btn {
+    background-color: var(--danger-color);
+
+    &:hover {
+        background-color: var(--hover-danger-color);
+    }
+}
+
+.list-item {
+    background-color: var(--primary-color);
+    width: 100%;
+    border-radius: 5px;
+    padding: 5px;
+
+    & h3 {
+        color: var(--emphasis-text-color);
+    }
+}
+
+.notification {
+    background-color: var(--accent-color);
+}
+
+.warning {
+    background-color: var(--danger-color);
+}
